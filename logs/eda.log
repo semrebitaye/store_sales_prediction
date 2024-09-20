@@ -1,0 +1,131 @@
+2024-09-20 19:15:53,737 INFO Training, test, and store data loaded.
+2024-09-20 19:17:36,907 INFO Training data merged with store data and columns Customers, PromoInterval dropped.
+2024-09-20 19:17:36,957 INFO Testing data merged with store data and columns Id, PromoInterval dropped.
+2024-09-20 19:19:58,122 INFO Handling missing values...
+2024-09-20 19:20:33,977 INFO Detecting and handling outliers...
+2024-09-20 19:21:36,074 INFO Missing values and outliers handled.
+2024-09-20 19:22:47,709 INFO Categorical columns: ['Date', 'StateHoliday', 'StoreType', 'Assortment', 'PromoInterval']
+2024-09-20 19:29:43,184 INFO Categorical columns: ['Date', 'StateHoliday', 'StoreType', 'Assortment', 'PromoInterval']
+2024-09-20 19:29:43,576 INFO Date data has 942 unique values.
+2024-09-20 19:29:43,987 INFO Date data sample values: 
+Date
+2015-01-01    1114
+2014-01-01    1114
+2013-12-24    1114
+2013-12-25    1114
+2013-05-19    1113
+              ... 
+2014-12-16     745
+2014-12-23     739
+2014-12-22     704
+2013-12-16     635
+2014-12-15     620
+Name: count, Length: 942, dtype: int64
+
+2024-09-20 19:29:44,330 INFO StateHoliday data has 4 unique values.
+2024-09-20 19:29:44,691 INFO StateHoliday data sample values: 
+StateHoliday
+0    959606
+a     20165
+b      6655
+c      4089
+Name: count, dtype: int64
+
+2024-09-20 19:29:45,035 INFO StoreType data has 4 unique values.
+2024-09-20 19:29:45,488 INFO StoreType data sample values: 
+StoreType
+a    535077
+d    309038
+c    133872
+b     12528
+Name: count, dtype: int64
+
+2024-09-20 19:29:45,774 INFO Assortment data has 3 unique values.
+2024-09-20 19:29:46,231 INFO Assortment data sample values: 
+Assortment
+a    527062
+c    456016
+b      7437
+Name: count, dtype: int64
+
+2024-09-20 19:29:46,388 INFO PromoInterval data has 3 unique values.
+2024-09-20 19:29:46,851 INFO PromoInterval data sample values: 
+PromoInterval
+Jan,Apr,Jul,Oct     538755
+Feb,May,Aug,Nov     242081
+Mar,Jun,Sept,Dec    209678
+Name: count, dtype: int64
+
+2024-09-20 19:30:23,758 INFO Rows with missing values dropped.
+2024-09-20 19:30:57,902 INFO Extracting date features...
+2024-09-20 19:30:59,471 INFO Date features extracted.
+2024-09-20 19:31:35,213 INFO Converting categorical columns to numerical...
+2024-09-20 19:31:36,035 INFO Categorical columns converted to numerical.
+2024-09-20 19:32:09,913 INFO Target column Sales relocated to the end.
+2024-09-20 19:33:31,609 INFO Preprocessed data sample: 
+   Store  DayOfWeek       Date  Customers  Open  Promo  StateHoliday  \
+1      2          4 2015-07-31        625     1      1             0   
+2      3          4 2015-07-31        821     1      1             0   
+3      4          4 2015-07-31       1498     1      1             0   
+4      5          4 2015-07-31        559     1      1             0   
+5      6          4 2015-07-31        589     1      1             0   
+
+   SchoolHoliday  StoreType  Assortment  ...  CompetitionOpenSinceMonth  \
+1              1          1           1  ...                       11.0   
+2              1          1           1  ...                       12.0   
+3              1          3           3  ...                        9.0   
+4              1          1           1  ...                        4.0   
+5              1          1           1  ...                       12.0   
+
+   CompetitionOpenSinceYear  Promo2  Promo2SinceWeek  Promo2SinceYear  \
+1                    2007.0       1             13.0           2010.0   
+2                    2006.0       1             14.0           2011.0   
+3                    2009.0       0             14.0           2011.0   
+4                    2015.0       0             14.0           2011.0   
+5                    2013.0       0             14.0           2011.0   
+
+     PromoInterval  Year  Month  Day  Sales  
+1  Jan,Apr,Jul,Oct  2015      7   31   6064  
+2  Jan,Apr,Jul,Oct  2015      7   31   8314  
+3  Jan,Apr,Jul,Oct  2015      7   31  13995  
+4  Jan,Apr,Jul,Oct  2015      7   31   4822  
+5  Jan,Apr,Jul,Oct  2015      7   31   5651  
+
+[5 rows x 21 columns]
+2024-09-20 19:33:31,735 INFO Preprocessed data sample: 
+   Id  Store  DayOfWeek       Date  Open  Promo  StateHoliday  SchoolHoliday  \
+0   1      1          3 2015-09-17   1.0      1             0              0   
+1   2      3          3 2015-09-17   1.0      1             0              0   
+2   3      7          3 2015-09-17   1.0      1             0              0   
+3   4      8          3 2015-09-17   1.0      1             0              0   
+4   5      9          3 2015-09-17   1.0      1             0              0   
+
+   StoreType  Assortment  CompetitionDistance  CompetitionOpenSinceMonth  \
+0          3           1               1270.0                        9.0   
+1          1           1              14130.0                       12.0   
+2          1           3              24000.0                        4.0   
+3          1           1               7520.0                       10.0   
+4          1           3               2030.0                        8.0   
+
+   CompetitionOpenSinceYear  Promo2  Promo2SinceWeek  Promo2SinceYear  \
+0                    2008.0       0              NaN              NaN   
+1                    2006.0       1             14.0           2011.0   
+2                    2013.0       0             14.0           2011.0   
+3                    2014.0       0             14.0           2011.0   
+4                    2000.0       0             14.0           2011.0   
+
+     PromoInterval  Year  Month  Day  
+0              NaN  2015      9   17  
+1  Jan,Apr,Jul,Oct  2015      9   17  
+2  Jan,Apr,Jul,Oct  2015      9   17  
+3  Jan,Apr,Jul,Oct  2015      9   17  
+4  Jan,Apr,Jul,Oct  2015      9   17  
+2024-09-20 19:34:29,984 INFO Comparing promotion distribution between training and test sets...
+2024-09-20 19:35:41,160 INFO Comparing Sales behavior before, during, and after holidays...
+2024-09-20 19:36:19,590 INFO Analyzing sales behavior around holidays...
+2024-09-20 19:36:52,368 INFO Investigating seasonal purchasing behaviors...
+2024-09-20 19:37:29,298 INFO Investigating seasonal purchasing behaviors...
+2024-09-20 19:38:03,721 INFO Analyzing correlation between sales and number of customers...
+2024-09-20 19:39:33,717 INFO Analyzing the effect of promotions on sales...
+2024-09-20 19:42:17,821 INFO Investigating assortment type on sales...
+2024-09-20 19:43:40,122 INFO analyzing impact of opening or reopening of new competitors on stores
